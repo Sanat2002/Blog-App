@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% block title %}Registration{% endblock title %} 
+{% block style %}
+
+body{
+    background-image: url('https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?cs=srgb&dl=pexels-jess-bailey-designs-768474.jpg&fm=jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#btn{
+  background-color:lightgreen;
+}
+{% endblock style %}
+{%block content %}
+
+<div class="container my-3">
+  <h2 class="alert alert-success text-center my-3">Register to blog</h2>
+  {% if msg %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  {% endif %}
+  <form action="" method="POST" class="offset-3 col-6 text-light">
+  {% csrf_token %}
+    {{form.as_p}}
+    <input
+      type="submit" style="display: block; margin-top: 2vw" id="btn" value="Register" class="btn"
+    />
+  </form>
+</div>
+
+{% endblock content %}

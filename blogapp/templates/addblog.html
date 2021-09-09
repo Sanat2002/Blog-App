@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/957201/pexels-photo-957201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="d-flex">
+        <div class="col-2 bg-dark" style="height: 100vh; border: 2px solid black;">
+            <div class="d-flex flex-column text-center my-2 text-white">
+                <a href="#" class="text-white" style="font-size: 2vw;">{{obj.name}}</a>
+                <hr>
+                <a href="{% url 'addblog' 0%}" class="text-decoration-none text-white" style="font-size: 1.2vw; margin: .5w;" id="new_page">New Page</a>
+                <a href="{% url 'showblog' obj.email%}" class="text-decoration-none text-white" style="font-size: 1.2vw; margin: .5vw;">Show Blogs</a>
+                <a href="/" class="text-decoration-none text-white" style="font-size: 1.2vw; margin: .4vw;">Return</a>
+                <div class="text-center" style="position: absolute; bottom: 1vw; width: 17vw;">
+                    <hr>
+                    <a href="/signout" class="text-decoration-none text-white" style="font-size: 1.2vw;">Sign out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-floating col-8 container" style="margin-top: 2vw;">
+        <form action="" method="POST">
+        {% csrf_token %}
+            {% if to_edit_blog %}
+            <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
+                style="height: 85vh; outline: hidden; border: none;">{{to_edit_blog.blog_text}}</textarea>
+            {% else %}
+            <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
+                style="height: 85vh; outline: hidden; border: none;"></textarea>
+                {% endif %}
+            <input type="submit" value="Save" class="btn btn-warning btn-sm" style="margin-top:2vw;">
+</form> 
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="{% static 'index.js' %}"></script>
+    <script>
+    document.getElementById("new_page").addEventListener("click",(e)=>{
+    document.getElementById("text_area").value=""
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <title>{% block title %}{% endblock title %}</title>
+
+    <style>
+    {% block style %}{% endblock style %}
+    </style>
+  </head>
+  <body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid mx-3 ">
+            <a class="navbar-brand fs-3" href="/">Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active fs-5" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+                <a href="register" class="text-light text-decoration-none">Register</a>
+                <a href="login" class="text-light mx-3 text-decoration-none">Log In</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock content %}
+    <div class="container-fluid d-flex flex-column bg-dark text-light" style="height: 20vw;">
+        <div class="container d-flex" style="padding: 2vw;">
+            <div class="d-flex flex-column  " style="margin-left: 1vw;">
+                <h3 style="font-size: 1.9vw;">Help</h3>
+                <div class="text-secondary" style="margin-top: 3vw;">
+                    <h5 style="font-size: 1.3vw;">Help Center</h5>
+                    <h5 style="font-size: 1.3vw;">Help Forum</h5>
+                    <h5 style="font-size: 1.3vw;">Video Tutorials</h5>
+                </div>
+            </div>
+            <div class="d-flex flex-column text-light" style="margin-left: 3vw;">
+                <h3 style="font-size: 1.9vw;">Community</h3>
+                <div class="text-secondary" style="margin-top: 3vw;">
+                    <h5 style="font-size: 1.3vw;">Blog</h5>
+                </div>
+            </div>
+            <div class="d-flex flex-column text-light " style="margin-left: 3vw;">
+                <h3 style="font-size: 1.9vw;">Developers</h3>
+                <div class="text-secondary" style="margin-top: 3vw;">
+                    <h5 style="font-size: 1.3vw;">Django</h5>
+                    <h5 style="font-size: 1.3vw;">Developer Forum</h5>
+                </div>
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="container d-flex" style="padding-top:0vw ;">
+            <h5 style="font-size: 1.3vw; padding-right:1vw;">Terms of Service</h5>
+            <h5 style="font-size: 1.3vw; padding-right: 2vw;">|</h5>
+            <h5  style="font-size: 1.3vw;padding-right: 2vw;">Privacy</h5>
+            <h5 style="font-size: 1.3vw;padding-right: 2vw;">|</h5>
+            <h5 style="font-size: 1.3vw;padding-right: 2vw;">Content Policy</h5>
+        </div>
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

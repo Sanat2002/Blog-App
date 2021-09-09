@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Login to blog{% endblock title %}
+{% block style %}
+
+    body{
+        background-image: url('https://th.bing.com/th/id/R.43de5114594c20c647b8ef6f280c83ae?rik=EKDYbB4dW1vdpw&riu=http%3a%2f%2fsfwallpaper.com%2fimages%2fblog-wallpaper-2.jpg&ehk=D8npeYO9xxWSTCnJtSl6x2fCkV26iPgH%2baztpQaTbpY%3d&risl=&pid=ImgRaw&r=0');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    #btn{
+        background-color:crimson;
+    }
+
+{% endblock style %}
+
+
+{% block content %}
+<div class="container my-3" style="margin-bottom:2vw;">
+{% if msg %}
+ <div class="alert alert-warning alert-dismissible fade show col-8 offset-2" role="alert">
+  {{msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<h2 class="alert alert-success text-center col-8 offset-2">Login to blog</h2>
+<form action="" method="POST" class="col-6 offset-3">
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="c_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Phone No.</label>
+    <input type="text" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="c_f_pass" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name="c_s_pass" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+</form>
+</div>
+{% endblock content %}
