@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
-
 </head>
+
 
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Name's Blog</a>
+      <div class="navbar-brand">{{obj.name}}'s Blogs</div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,35 +21,58 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Create more blog</a>
+            <a class="nav-link active" aria-current="page" href="/addblog/0">Create more blog</a>
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
         </form>
       </div>
     </div>
   </nav>
 
   <div class="container d-flex flex-wrap" style="margin-top: 6vw;">
+  {% if all_u_blogs %}
     {% for blogs in all_u_blogs %}
-    <div class="bg-dark col-5" style="height: 25vw; margin-left: 2vw; margin-top: 2vw;">
+    <div class="bg-secondary col-5" id="cont" style="height: 25vw; margin-left: 2vw; margin-top: 2vw; border-radius:1vw;">
       <p class="text-light" style="padding: .5vw; height:21.4vw;">{{blogs.blog_text}}</p>
       <div class="text-end">
-        <a href="{% url 'addblog' blogs.b_id%}" class="btn btn-warning">Edit</a>
-        <a href="" class="btn btn-danger">Delete</a>
+        <a href="{% url 'addblog' blogs.b_id%}" class="btn btn-warning" style="border-radius:2vw;">Edit</a>
+        <a href="{% url 'deleteblog' blogs.b_id%}" class="btn btn-danger" style="border-radius:2vw;">Delete</a>
       </div>
     </div>
   {% endfor %}
+  {% else %}
+  <div class="offset-3">
+  <h2 class="text-dark alert alert-danger">{{obj.name}} you have not added any blog yet!!!</h2>
+  <a href="/addblog/0" class="btn btn-warning">Create Blog</a>
+</div>
+  {% endif %}
   </div>
 
-
-
+  <script>
+  let all_divs = document.querySelectorAll("#cont")
+  let search = document.getElementById("search") 
+  document.getElementById("search").addEventListener("input",(e)=>{
+      for(let divs of all_divs){
+          if(divs.firstChild.nextSibling.innerHTML.includes(search.value)){
+              divs.classList+=" d-block"
+              divs.classList.remove("d-none")
+          }
+          else{
+              divs.classList+=" d-none"
+          }
+      }
+          if(search.value == ''){
+              for(let div of all_divs){
+                  div.classList.remove("d-none")
+              }
+          }
+  })
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

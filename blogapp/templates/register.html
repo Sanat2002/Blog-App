@@ -1,4 +1,6 @@
-{% extends 'base.html' %} 
+
+{% extends 'base.html' %}
+
 {% block title %}Registration{% endblock title %} 
 {% block style %}
 
@@ -15,7 +17,11 @@ body{
 {%block content %}
 
 <div class="container my-3">
+  {% if to_update_pr %}
+  <h2 class="alert alert-success text-center my-3">{{to_update_pr.name}}'s Profile</h2>
+  {% else %}
   <h2 class="alert alert-success text-center my-3">Register to blog</h2>
+  {% endif %}
   {% if msg %}
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
   {{msg}}
@@ -25,9 +31,15 @@ body{
   <form action="" method="POST" class="offset-3 col-6 text-light">
   {% csrf_token %}
     {{form.as_p}}
+    {% if to_update_pr %}
+    <input
+      type="submit" style="display: block; margin-top: 2vw" id="btn" value="Save" class="btn"
+    />
+    {% else %}
     <input
       type="submit" style="display: block; margin-top: 2vw" id="btn" value="Register" class="btn"
     />
+    {% endif %}
   </form>
 </div>
 

@@ -8,5 +8,6 @@ urlpatterns = [
     path('addblog/<int:id>',views.addblog,name="addblog"),
     path('signout',views.signout,name="signout"),
     path('showblog/<g_email>',views.showblog,name="showblog"),
-    # path('edit/<id>',views.edit,name="edit")
+    path('delete/<int:id>',views.deleteblog,name="deleteblog"),
+    path('updatepr/<int:id>',views.updatepr,name="updatepr")
 ]

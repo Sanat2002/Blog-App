@@ -14,15 +14,8 @@ class u_reg(forms.ModelForm):
         ,'address':TextInput(attrs={'class':'form-control'})
         ,'country':TextInput(attrs={'class':'form-control'})
         ,'state':TextInput(attrs={'class':'form-control'})
-        ,'fi_password':PasswordInput(attrs={'class':'form-control'})
-        ,'se_password':PasswordInput(attrs={'class':'form-control'}),
+        ,'fi_password':PasswordInput(render_value=True,attrs={'class':'form-control'})
+        ,'se_password':PasswordInput(render_value=True,attrs={'class':'form-control'}),
         'phone':TextInput(attrs={'class':'form-control'}),
         'gender':RadioSelect
         }
-
-
-
-# class to_e_add_blog(forms.ModelForm):
-#     class Meta:
-#         model = blog
-#         fiels = "__all__"

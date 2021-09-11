@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+    body{
+       background-image: url('https://images.pexels.com/photos/261579/pexels-photo-261579.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    </style>
+  </head>
+  <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-brand text-light text-decoration-underline">{{to_update_pr.name}}'s</div><span class="text-danger text-decoration-none navbar-brand">Profile view</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <a href="/addblog/0" class="text-light text-decoration-none">Go to blog section</a>
+    </div>
+  </div>
+</nav>
+
+{% if msg %}
+<div class="offset-2 alert alert-warning alert-dismissible fade text-center show col-8" role="alert" style="margin-top:4vw;">
+ {{msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="text-center d-flex flex-wrap justify-content-center" style=" margin-top:5vw;">
+    <div class="col-8 my-2 d-flex" style=" border-radius:2vw;">
+    <div class="col-6 " style="height:54vw; border-radius:2vw; overflow:hidden;">
+    <div class="text-light" style="margin-top:2vw;">
+    <h1 class="text-decoration-underline text-light">UP<span class="text-danger">DA</span>TE <span class="text-danger">!!!</span></h1>
+    <h2 class="">Update your profile anytime</h2>
+    <h3>Enjoy your blog writing with us...</h3>
+    <p class="" style="margin-top:4vw;"><span class="text-danger">~></span> Keep sharing your passion with others.</p>
+     <p><span class="text-danger">~></span> Keep gaining exposure.</p>
+     <p><span class="text-danger">~></span> keep building authority.</p>
+      <p><span class="text-danger">~></span> keep improving your writing skills.</p>  
+    </div>
+    {% comment %} <div class="" style="margin-top:8.5vw;">
+    <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+    </div> {% endcomment %}
+    </div>
+    <div class="col-6 offset-0 text-light bg-dark" style="; border-radius:2vw;">
+    <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-dark" value="Update Profile">
+    </form>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
