@@ -17,11 +17,13 @@
 
 {% block content %}
 <div class="container my-3" style="margin-bottom:2vw;">
-{% if msg %}
+{% if messages %}
+{% for message in messages  %}
  <div class="alert alert-warning alert-dismissible fade show col-8 offset-2" role="alert">
-  {{msg}}
+  {{message}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+{% endfor %}
 {% endif %}
 <h2 class="alert alert-success text-center col-8 offset-2">Login to blog</h2>
 <form action="" method="POST" class="col-6 offset-3">
@@ -42,7 +44,7 @@
     <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
     <input type="password" name="c_s_pass" class="form-control" id="exampleInputPassword1">
   </div>
-  <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+  <button type="submit" class="btn btn-primary" id="btn">Login</button>
 </form>
 </div>
 {% endblock content %}

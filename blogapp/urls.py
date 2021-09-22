@@ -9,5 +9,6 @@ urlpatterns = [
     path('signout',views.signout,name="signout"),
     path('showblog/<g_email>',views.showblog,name="showblog"),
     path('delete/<int:id>',views.deleteblog,name="deleteblog"),
-    path('updatepr/<int:id>',views.updatepr,name="updatepr")
+    path('updatepr/<int:id>',views.updatepr,name="updatepr"),
+    path('verify/<token>',views.verify_email,name="verifyemail")
 ]

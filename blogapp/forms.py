@@ -1,12 +1,12 @@
 from django import forms
 from django.forms.fields import ChoiceField
 from django.forms.widgets import CheckboxInput, PasswordInput, RadioSelect, TextInput
-from .models import registration,blog
+from .models import registration
 
 class u_reg(forms.ModelForm):
     class Meta:
         model = registration
-        fields = "__all__"
+        fields = ['name','email','address','country','state','fi_password','se_password','phone','gender','is_tick']
 
         labels = {'name':'Enter your Name','email':'Enter your Email Id','fi_password':"Enter Password",'se_password':"Confirm Password",'phone':'Phone No.'}
 

@@ -30,11 +30,13 @@
   </div>
 </nav>
 
-{% if msg %}
+{% if messages %}
+{% for message in messages %}
 <div class="offset-2 alert alert-warning alert-dismissible fade text-center show col-8" role="alert" style="margin-top:4vw;">
- {{msg}}
+ {{message}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+{% endfor %}
 {% endif %}
 
 <div class="text-center d-flex flex-wrap justify-content-center" style=" margin-top:5vw;">

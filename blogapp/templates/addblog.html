@@ -41,17 +41,17 @@
         <form action="" method="POST">
         {% csrf_token %}
             {% if to_edit_blog %}
-                {% if msg %}
+                {% if messages %}
                 <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
-                style="height: 85vh; outline: hidden; border: none;">{{msg}}</textarea>
+                style="height: 85vh; outline: hidden; border: none;">{% for message in messages %}{{message}}{% endfor %}</textarea>
                 {% else %}
                 <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
                 style="height: 85vh; outline: hidden; border: none;">{{to_edit_blog.blog_text}}</textarea>
                 {% endif %}
             {% else %}
-                {% if msg %}
+                {% if messages %}
                 <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
-                style="height: 85vh; outline: hidden; border: none;">{{msg}}</textarea>
+                style="height: 85vh; outline: hidden; border: none;">{% for message in messages %}{{message}}{% endfor %}</textarea>
                 {% else %}
                 <textarea class="form-control" placeholder="Write your blog here..." name="blog_input" id="text_area"
                 style="height: 85vh; outline: hidden; border: none;"></textarea>
@@ -65,7 +65,7 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
     {% load static %}
-    <script src="{% static 'index.js' %}"></script>
+    {% comment %} <script src="{% static 'index.js' %}"></script> {% endcomment %}
     <script>
     document.getElementById("new_page").addEventListener("click",(e)=>{
     document.getElementById("text_area").value=""

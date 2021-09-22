@@ -18,6 +18,8 @@ class registration(models.Model):
     phone = models.CharField(max_length=15)
     gender = models.CharField(max_length=10,choices=gender_choice,default='M')
     is_tick = models.BooleanField("I Agree To The Terms and Conditions",default=False)
+    auth_token = models.CharField(max_length=50,default="l")
+    verified = models.CharField(max_length=5,default="false")
 
     def __str__(self):
         return self.name
