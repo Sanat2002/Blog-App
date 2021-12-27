@@ -7,8 +7,7 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class RegistrationSerializer(serializers.ModelSerializer):
-    # blogs = BlogSerializer(many=True,read_only=True)
-    user = serializers.StringRelatedField(many=True,read_only=True)
+    blogs = serializers.StringRelatedField(many=True,read_only=True)
     class Meta:
         model = registration
-        fields = ['id','name','email','address','country','state','fi_password','se_password','phone','gender','is_tick','auth_token','verified','user']
+        fields = ['id','name','email','address','country','state','fi_password','se_password','phone','gender','is_tick','auth_token','verified','blogs']

@@ -104,7 +104,7 @@ def addblog(request,id):
             if request.method =="POST":
                 blog_input = request.POST.get("blog_input")
                 if blog_input:
-                    b = blog(u_email=obj.email,blog_text=blog_input)
+                    b = blog(user=obj,u_email=obj.email,blog_text=blog_input)
                     b.save()
                 else:
                     messages.success(request,"Please write something in your blog...")
