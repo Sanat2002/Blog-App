@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
     path('showblog/<g_email>',views.showblog,name="showblog"),
     path('delete/<int:id>',views.deleteblog,name="deleteblog"),
     path('updatepr/<int:id>',views.updatepr,name="updatepr"),
-    path('verify/<token>',views.verify_email,name="verifyemail")
+    path('verify/<token>',views.verify_email,name="verifyemail"),
+    path('api/',include('blogapp.api.urls'))
 ]
