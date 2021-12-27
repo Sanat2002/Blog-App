@@ -7,6 +7,7 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    # this will show that which blogs are written by the current user
     blogs = serializers.StringRelatedField(many=True,read_only=True)
     class Meta:
         model = registration

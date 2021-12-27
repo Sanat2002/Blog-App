@@ -27,6 +27,7 @@ class registration(models.Model):
 
 
 class blog(models.Model):
+    # this will give the options of all the registered user
     user = models.ForeignKey(registration,on_delete=models.CASCADE,related_name='blogs')
     u_email = models.EmailField()
     blog_text = models.CharField(max_length=5000)

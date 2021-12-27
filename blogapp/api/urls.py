@@ -7,5 +7,6 @@ router.register('regisapi',views.RegistrationApi,basename='regis')
 router.register('blogapi',views.BlogApi,basename='blog')
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)),
+    path('auth/',include('rest_framework.urls'))
 ]
