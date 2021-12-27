@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 
 # if there is problem in 'migrate' command then , delete all the initial.py files except __inti__.py and then run 'makemigration' and 'migrate' this will solve the problem
 
@@ -26,8 +27,9 @@ class registration(models.Model):
 
 
 class blog(models.Model):
+    u = models.ForeignKey(registration,on_delete=models.CASCADE,related_name='user')
     u_email = models.EmailField()
     blog_text = models.CharField(max_length=5000)
 
     def __str__(self):
-        return self.u_email
+        return self.blog_text
