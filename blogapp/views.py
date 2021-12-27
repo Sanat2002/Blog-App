@@ -6,6 +6,8 @@ from django.core.mail import send_mail
 import uuid
 from django.contrib import messages
 
+# if in case in mongodb the document 'id'(it is not a object _id(default)) does not exist then , delete the whole data base and create new one 
+
 # making global and then accessing it inside the function by using global keyword
 u_logged_in = False
 
