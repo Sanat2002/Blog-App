@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models.base import Model
 
-# if there is problem in 'migrate' command then , delete all the initial.py files except __inti__.py and then run 'makemigration' and 'migrate' this will solve the problem
+# if there is problem in 'migrate' command then , delete all the initial.py files except __init__.py and then run 'makemigration' and 'migrate' this will solve the problem
 
 class registration(models.Model):
     gender_choice = (
-        # 'this will store in database' ,'this will shows to user'
+        # 'this will store in database' ,'this will shows to users'
         ('M','Male'),
         ('F','Female')
     )
