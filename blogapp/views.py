@@ -62,7 +62,7 @@ def login(request):
         c_f_pass = request.POST.get('c_f_pass')
         c_s_pass = request.POST.get('c_s_pass')
 
-        # i have used verified as charfield because booleanfield is giving error while i am filtering
+        # i have used 'verified' as charfield because booleanfield is giving error while i am filtering
         u_l = registration.objects.filter(email=c_email,fi_password=c_f_pass,verified="true").first()
         # u_l = registration.objects.filter(verified=True) # give error
         if u_l:
@@ -113,7 +113,7 @@ def addblog(request,id):
     return HttpResponseRedirect("/login")
 
 
-def signout(request):
+def signout():
     global u_logged_in
     u_logged_in = False
     return HttpResponseRedirect("/")
@@ -134,7 +134,7 @@ def showblog(request,g_email):
     return HttpResponseRedirect("/login")
 
 
-def deleteblog(request,id):
+def deleteblog(id):
     to_delete_blog = blog.objects.get(id=id)
     to_delete_blog.delete()
     return HttpResponseRedirect("/showblog/"+to_delete_blog.u_email)
