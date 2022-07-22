@@ -113,7 +113,7 @@ def addblog(request,id):
     return HttpResponseRedirect("/login")
 
 
-def signout():
+def signout(request):
     global u_logged_in
     u_logged_in = False
     return HttpResponseRedirect("/")
@@ -128,13 +128,16 @@ def showblog(request,g_email):
         for blogs in all_blog:
             if blogs.u_email == g_email:
                 all_u_blogs.append({"b_id":blogs.id,"blog_text":blogs.blog_text})
+    
+        print(all_u_blogs)
 
         return render(request,"showblog.html",{"all_u_blogs":all_u_blogs,"obj":obj})
     
     return HttpResponseRedirect("/login")
 
 
-def deleteblog(id):
+def deleteblog(request,id):
+    print(id)
     to_delete_blog = blog.objects.get(id=id)
     to_delete_blog.delete()
     return HttpResponseRedirect("/showblog/"+to_delete_blog.u_email)
